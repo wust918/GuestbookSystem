@@ -1,0 +1,46 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    background: #E5E6D0 url(http://www.shejidaren.com/wp-content/themes/Daren/images/bg.jpg) repeat 0 0;
+}
+a{
+    text-decoration:none;
+}
+a img {
+    border: 0;
+}
+a:link,a:visited{
+    color:red;
+}
+.header {
+    height: 60px;
+    background-color: black;
+    color: white;
+    line-height: 60px;
+}
+
+    .header .nav {
+        height: 60px;
+    }
+
+        .header .nav ul li {
+            float: left;
+            padding: 0 20px;
+            list-style: none;
+        }
+
+        .header .nav ul li a {
+            color: white;
+            text-decoration:none;
+        }
+
+        .header .nav ul li a:hover {
+            color: aqua;
+        }
+.ds-comment-body .time{
+    float:right;
+}

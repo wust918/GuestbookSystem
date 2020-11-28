@@ -1,0 +1,57 @@
+﻿@model GuestbookSystem.Models.User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Css/CommonStyle.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.css">
+    <title>Login</title>
+</head>
+<body>
+    <div class="header">
+        <div class="nav">
+            <ul>
+                <li>留言本</li>
+                <li>@Html.ActionLink("首页", "../Home/Index")</li>
+            </ul>
+        </div>
+    </div>
+    <h2 style="text-align:center;margin-top:30px;">用户登录</h2>
+    <div class="container body-content">
+        @using (Html.BeginForm())
+        {
+        <div style="width:275px;margin: 0 auto;">
+            @Html.ValidationSummary()
+        </div>
+        <form class="text-center">
+            <div class="form-group" style="width:275px;margin: 0 auto;">
+                <label>用户名💂</label>
+                @Html.EditorFor(a => a.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(a => a.UserName)
+            </div>
+            <div class="form-group" style="width:275px;margin: 0 auto;">
+                <label>密&nbsp;&nbsp;&nbsp;码🔒</label>
+                @Html.EditorFor(a => a.Password, new { htmlAttributes = new { @type = "password", @class = "form-control" } })
+                @Html.ValidationMessageFor(a => a.Password)
+            </div>
+            <div style="width:275px;margin: 20px auto;">
+                <button type="submit" class="btn btn-info" style="margin:0 125px 0 0;">
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                    登录
+                </button>
+                <button type="button" class="btn btn-success" onclick="javascript:window.location.href='/Account/Register'">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    注册
+                </button>
+            </div>
+            
+        </form>
+        }
+    </div>
+</body>
+</html>

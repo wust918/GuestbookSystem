@@ -1,0 +1,50 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CheckMessage</title>
+    <link rel="stylesheet" href="~/Css/CommonStyle.css">
+    <link rel="stylesheet" href="~/Css/WordsStyle.css">
+</head>
+<body>
+    <div class="header">
+        <div class="nav">
+            <ul>
+                <li>留言本</li>
+                <li>@Html.ActionLink("首页", "Index")</li>
+                <li>@Html.ActionLink("删除留言", "DeleteWords")</li>
+                <li>@Html.ActionLink("审核留言", "CheckIndex")</li>
+                <li>@Html.ActionLink("用户管理", "UserManage")</li>
+                <li>@Html.ActionLink("留言统计", "CommentSummary")</li>
+                <li>@Html.ActionLink("退出登录", "../Home/Index")</li>
+            </ul>
+        </div>
+    </div>
+    <h2 style="text-align:center;margin-top:30px;">确认通过审核?</h2>
+        <div class="wrapper">
+            <div class="ds-post-main">
+                <div class="ds-avatar">
+                    <img src="http://tp3.sinaimg.cn/1750584642/50/5612846168/1">
+                </div>
+                <div class="ds-comment-body">
+                    <h3>🔔@Model.Title</h3>
+                    <br />
+                    <p>📝@Model.Content</p>
+                    <br />
+                    <span>💌@Model.AuthorEmail</span>
+                    <span class="time">⌚@Model.CreatedOn</span>
+                    @using (Html.BeginForm())
+                    {
+                        <input type="submit" value="通过审核" />
+                    }
+                </div>
+            </div>
+        </div>
+</body>
+</html>

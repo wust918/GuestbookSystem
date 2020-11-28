@@ -1,0 +1,53 @@
+﻿@model GuestbookSystem.Models.Guestbook
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>添加留言</title>
+    <link rel="stylesheet" href="~/Css/CommonStyle.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.css">
+</head>
+<body>
+    <div class="header">
+        <div class="nav">
+            <ul>
+                <li>留言本</li>
+                <li>@Html.ActionLink("首页", "AllWords")</li>
+                <li>@Html.ActionLink("我的留言", "MyWords")</li>
+                <li>@Html.ActionLink("添加留言", "CreateWords")</li>
+                <li>@Html.ActionLink("退出登录", "../Home/Index")</li>
+            </ul>
+        </div>
+    </div>
+    <h2  style="text-align:center;margin-top:30px;">留下你想说的话</h2>
+    <div class="container body-content">
+        <form action="/User/CreateWords" method="post">
+            <div class="form-group">
+                <label for="exampleInputEmail1">留言人邮箱💌</label>
+                @Html.EditorFor(g => g.AuthorEmail, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(g => g.AuthorEmail)
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">标题🔔</label>
+                @Html.EditorFor(g => g.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(g => g.Title)
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">内容📝</label>
+                @Html.TextAreaFor(g => g.Content, new { @class = "form-control", @rows = "4", @cols = "40" })
+                @Html.ValidationMessageFor(g => g.Content)
+            </div>
+            <button type="submit" class="btn btn-success">发布</button>
+        </form>
+        </div>
+        @section scripts{
+            <script src="/Scripts/jquery.validate.js"></script>
+            <script src="/Scripts/jquery.validate.unobtrusive.js"></script>
+        }
+</body>
+</html>

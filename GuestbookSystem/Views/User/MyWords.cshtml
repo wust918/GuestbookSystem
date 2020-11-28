@@ -1,0 +1,47 @@
+﻿@model List<GuestbookSystem.Models.Guestbook>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>我的留言</title>
+    <link rel="stylesheet" href="~/Css/CommonStyle.css">
+    <link rel="stylesheet" href="~/Css/WordsStyle.css">
+</head>
+<body>
+    <div class="header">
+        <div class="nav">
+            <ul>
+                <li>留言本</li>
+                <li>@Html.ActionLink("首页", "AllWords")</li>
+                <li>@Html.ActionLink("我的留言", "MyWords")</li>
+                <li>@Html.ActionLink("添加留言", "CreateWords")</li>
+                <li>@Html.ActionLink("退出登录", "../Home/Index")</li>
+            </ul>
+        </div>
+    </div>
+    <h2 style="text-align:center;margin-top:30px;">我的留言</h2>
+    @foreach (var gb in Model)
+    {
+        <div class="wrapper">
+            <div class="ds-post-main">
+                <div class="ds-avatar">
+                    <img src="http://tp3.sinaimg.cn/1750584642/50/5612846168/1">
+                </div>
+                <div class="ds-comment-body">
+                    <h3>🔔@gb.Title</h3>
+                    <br />
+                    <p>📝@gb.Content</p>
+                    <br />
+                    <span>💌@gb.AuthorEmail</span>
+                    <span class="time">⌚@gb.CreatedOn</span>
+                </div>
+            </div>
+        </div>
+    }
+</body>
+</html>

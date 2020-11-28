@@ -1,0 +1,69 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Css/CommonStyle.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.css">
+    <title>UserManage</title>
+</head>
+<body>
+    <div class="header">
+        <div class="nav">
+            <ul>
+                <li>留言本</li>
+                <li>@Html.ActionLink("首页", "Index")</li>
+                <li>@Html.ActionLink("删除留言", "DeleteWords")</li>
+                <li>@Html.ActionLink("审核留言", "CheckIndex")</li>
+                <li>@Html.ActionLink("用户管理", "UserManage")</li>
+                <li>@Html.ActionLink("留言统计", "CommentSummary")</li>
+                <li>@Html.ActionLink("退出登录", "../Home/Index")</li>
+            </ul>
+        </div>
+    </div>
+    <h2 style="text-align:center;margin-top:30px;">用户管理</h2>
+    <div class="container">
+        <table class="table table-hover table-bordered">
+            <tr>
+                <th class="col-sm-2">序号🎲</th>
+                <th class="col-sm-2">姓名💂</th>
+                <th class="col-sm-2">邮箱💌</th>
+                <th class="col-sm-2">身份🙂</th>
+                <th class="col-sm-2">操作🔒</th>
+            </tr>
+            @foreach (GuestbookSystem.Models.User s in Model)
+            {
+                if (s.SRole.ToString() == "管理员")
+                {
+                    <tr class="success">
+                    <td>@s.UserId</td>
+                    <td>@s.UserName</td>
+                    <td>@s.AuthorEmail</td>
+                    <td>@s.SRole.ToString()</td>
+                    <td>
+                        👑
+                    </td>
+                    </tr> 
+                }
+                else
+                {
+                    <tr>
+                        <td>@s.UserId</td>
+                        <td>@s.UserName</td>
+                        <td>@s.AuthorEmail</td>
+                        <td>@s.SRole.ToString()</td>
+                        <td>
+                            @Html.ActionLink("❌", "DeleteUser", new { id = s.UserId })
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Css/CommonStyle.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.css">
+    <title>CommentSummary</title>
+</head>
+<body>
+    <div class="header">
+        <div class="nav">
+            <ul>
+                <li>留言本</li>
+                <li>@Html.ActionLink("首页", "Index")</li>
+                <li>@Html.ActionLink("删除留言", "DeleteWords")</li>
+                <li>@Html.ActionLink("审核留言", "CheckIndex")</li>
+                <li>@Html.ActionLink("用户管理", "UserManage")</li>
+                <li>@Html.ActionLink("留言统计", "CommentSummary")</li>
+                <li>@Html.ActionLink("退出登录", "../Home/Index")</li>
+            </ul>
+        </div>
+    </div>
+    <h2 style="text-align:center;margin-top:30px;">留言统计</h2>
+    <div class="container body-content">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">审核通过</h3>
+            </div>
+            <div class="panel-body">
+                一共有 @ViewBag.count 条已审核通过的留言
+            </div>
+        </div>
+
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <h3 class="panel-title">有待审核</h3>
+            </div>
+            <div class="panel-body">
+                一共有 @ViewBag.count2 条待审核的留言
+            </div>
+        </div>
+        </div>
+</body>
+</html>
