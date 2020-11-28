@@ -1,8 +1,11 @@
 # GuestbookSystem
 
 ## 简介
-ASP .NET MVC框架的留言本软件，控制器，视图，用了bootstrap框架
+ASP .NET MVC5框架的留言本软件，控制器，视图，用了bootstrap框架
+### 模型
+用户模型User
 
+留言本模型GuestBook
 ### 用户
 普通用户、管理员
 
